@@ -10,40 +10,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author user
  */
 @Entity
+@NamedQueries({
+@NamedQuery(name = "Location.getAllLocation",query = "select l from Location l")
+})
 public class Location {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int locId;
     private String locName;
-    private int custId;
+    private int price;
     private String locCode;
-    @Embedded
-    private Address address;
-    @Embedded
-    private ContactDetails cotactDetails;
 
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
-    }
-
-    public ContactDetails getCotactDetails() {
-        return cotactDetails;
-    }
-
-    public void setCotactDetails(ContactDetails cotactDetails) {
-        this.cotactDetails = cotactDetails;
-    }
 
     public String getLocCode() {
         return locCode;
@@ -69,12 +55,17 @@ public class Location {
         this.locName = locName;
     }
 
-    public int getCustId() {
-        return custId;
+    public int getPrice() {
+        return price;
     }
 
-    public void setCustId(int custId) {
-        this.custId = custId;
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" + "locId=" + locId + ", locName=" + locName + ", price=" + price + ", locCode=" + locCode + '}';
     }
 
 }

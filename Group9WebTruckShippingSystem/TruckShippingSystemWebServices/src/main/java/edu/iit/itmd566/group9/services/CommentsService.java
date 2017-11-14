@@ -26,20 +26,20 @@ import javax.persistence.EntityTransaction;
 public class CommentsService {
 
     @WebMethod(operationName = "getCommentsById")
-    public Comments CommentsService(@WebParam(name = "id") Integer cmtid) throws Exception {
+    public Boolean CommentsService(@WebParam(name = "comment") Comments comment) {
 
-        Comments comment = new Comments();
         try {
             EntityManager em = Utility.createEntityManager();
             EntityTransaction trans = em.getTransaction();
             trans.begin();
-            comment = em.find(Comments.class, cmtid);
+            em.persist(em);
             trans.commit();
             em.close();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return comment;
+        return false;
 
     }
 
@@ -48,7 +48,7 @@ public class CommentsService {
         EntityManager em = Utility.createEntityManager();
         List<Comments> commentList = new ArrayList<>();
         try {
-            commentList = em.createQuery("Select c from Comments c", Comments.class).getResultList();
+            commentList = em.createNamedQuery("Comments.getAllComments", Comments.class).getResultList();
             em.close();
         } catch (Exception e) {
             e.printStackTrace();

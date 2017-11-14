@@ -18,6 +18,7 @@
     <class>edu.iit.itmd566.group9.domain.Transaction</class>
     <class>edu.iit.itmd566.group9.domain.Vehicles</class>
     <class>edu.iit.itmd566.group9.domain.Location</class>
+    <class>edu.iit.itmd566.group9.domain.User</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <!--      <property name="eclipselink.logging.level" value="FINE"/>-->

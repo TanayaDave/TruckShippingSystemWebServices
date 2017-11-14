@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://dhcp253.merusouth126.iit.edu:8080/TruckShippingSystemWebServices/EmployeeService?wsdl" uri="wsdl/dhcp253.merusouth126.iit.edu_8080/TruckShippingSystemWebServices/EmployeeService.wsdl"/>
+    <system systemId="http://dhcp253.merusouth126.iit.edu:8080/TruckShippingSystemWebServices/EmployeeService?xsd=1" uri="wsdl/dhcp253.merusouth126.iit.edu_8080/TruckShippingSystemWebServices/EmployeeService.xsd_1.xsd"/>
+    <system systemId="http://dhcp253.merusouth126.iit.edu:8080/TruckShippingSystemWebServices/LoginService?wsdl" uri="wsdl/dhcp253.merusouth126.iit.edu_8080/TruckShippingSystemWebServices/LoginService.wsdl"/>
+    <system systemId="http://dhcp253.merusouth126.iit.edu:8080/TruckShippingSystemWebServices/LoginService?xsd=1" uri="wsdl/dhcp253.merusouth126.iit.edu_8080/TruckShippingSystemWebServices/LoginService.xsd_1.xsd"/>
+</catalog>

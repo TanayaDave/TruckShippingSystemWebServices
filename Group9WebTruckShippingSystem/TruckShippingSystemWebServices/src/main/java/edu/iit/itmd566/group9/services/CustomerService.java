@@ -20,21 +20,36 @@ import javax.persistence.EntityTransaction;
 public class CustomerService {
 
     @WebMethod(operationName = "getCustomerDetailsById")
-    public Customer customerService(@WebParam(name = "custId") Integer id) throws Exception {
- 
+    public Customer customerService(@WebParam(name = "custId") Integer id) {
 
-        Customer customer=new Customer();
+        Customer customer = new Customer();
         try {
-            EntityManager em=Utility.createEntityManager();
-            EntityTransaction trans=em.getTransaction();
+            EntityManager em = Utility.createEntityManager();
+            EntityTransaction trans = em.getTransaction();
             trans.begin();
-            customer=em.find(Customer.class, id);
+            customer = em.find(Customer.class, id);
             trans.commit();
             em.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return customer;
+
+    }
+
+    @WebMethod(operationName = "createCustomer")
+    public void createCustomer(@WebParam(name = "customer") Customer customer) {
+
+        try {
+            EntityManager em = Utility.createEntityManager();
+            EntityTransaction trans = em.getTransaction();
+            trans.begin();
+            em.persist(customer);
+            trans.commit();
+            em.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 }

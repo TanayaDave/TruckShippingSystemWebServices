@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -19,24 +20,20 @@ import javax.xml.bind.annotation.XmlAttribute;
  * @author user
  */
 @Entity
+@NamedQuery(name = "Comments.getAllComments", query = "Select c from Comments c")
 public class Comments {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    
+
     @Temporal(TemporalType.DATE)
     private Date date;
-    
-    @Temporal(TemporalType.DATE)
-    private Date time;
 
-    private String type;
+    private String title;
     private String description;
-    private int custId;
 
-   
-     @XmlAttribute
+    @XmlAttribute
     public Integer getId() {
         return id;
     }
@@ -53,20 +50,12 @@ public class Comments {
         this.date = date;
     }
 
-    public Date getTime() {
-        return time;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTime(Date time) {
-        this.time = time;
-    }
-    
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -77,18 +66,9 @@ public class Comments {
         this.description = description;
     }
 
-    public int getCustId() {
-        return custId;
-    }
-
-    public void setCustId(int custId) {
-        this.custId = custId;
-    }
-    
-     @Override
+    @Override
     public String toString() {
-        return "Comments{" + "Id=" + id + ", dtae=" + date + ", time=" + time + ", type=" + type + ", comment=" + description + ", custId=" + custId  + '}';
+        return "Comments{" + "Id=" + id + ", date=" + date+ ", title=" + title + ", comment=" + description + '}';
     }
 
-    
 }

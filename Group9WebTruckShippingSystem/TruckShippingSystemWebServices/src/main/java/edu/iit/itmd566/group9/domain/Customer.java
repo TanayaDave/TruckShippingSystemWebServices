@@ -26,7 +26,6 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int custId;
     private String custFirstName;
-    private String custTitle;
     private String custLastName;
     @Embedded
     private Address address;
@@ -73,14 +72,6 @@ public class Customer {
 
     public void setCustId(int custId) {
         this.custId = custId;
-    }
-
-    public String getCustTitle() {
-        return custTitle;
-    }
-
-    public void setCustTitle(String custTitle) {
-        this.custTitle = custTitle;
     }
 
     public Address getAddress() {
