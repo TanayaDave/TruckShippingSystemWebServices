@@ -8,6 +8,7 @@ package edu.iit.itmd566.group9.services;
 import edu.iit.itmd566.group9.domain.Order;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
@@ -20,25 +21,27 @@ import javax.persistence.EntityTransaction;
  */
 @WebService(serviceName = "OrderService")
 public class OrderService {
-
+    
     @WebMethod(operationName = "getOrderDetailsById")
     public Order orderService(@WebParam(name = "orderId") Integer id) throws Exception {
-
+        
         Order order = new Order();
         try {
             EntityManager em = Utility.createEntityManager();
-            EntityTransaction trans = em.getTransaction();
-            trans.begin();
+//            EntityTransaction trans = em.getTransaction();
+//            trans.begin();
+            LOG.info("DATA:" + em.find(Order.class, id).toString());
             order = em.find(Order.class, id);
-            trans.commit();
+//            trans.commit();
             em.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
         return order;
-
+        
     }
-
+    private static final Logger LOG = Logger.getLogger(OrderService.class.getName());
+    
     @WebMethod(operationName = "getOrderList")
     public List<Order> getOrderList() {
         EntityManager em = Utility.createEntityManager();
@@ -50,6 +53,7 @@ public class OrderService {
             e.printStackTrace();
         }
         return orderList;
-
+        
     }
+    
 }

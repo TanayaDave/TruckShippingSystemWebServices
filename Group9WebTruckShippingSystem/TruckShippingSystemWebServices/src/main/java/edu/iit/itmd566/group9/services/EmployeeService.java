@@ -32,10 +32,7 @@ public class EmployeeService {
         Employee emp = new Employee();
         try {
             EntityManager em = Utility.createEntityManager();
-            EntityTransaction trans = em.getTransaction();
-            trans.begin();
             emp = em.find(Employee.class, empid);
-            trans.commit();
             em.close();
         } catch (Exception e) {
             e.printStackTrace();

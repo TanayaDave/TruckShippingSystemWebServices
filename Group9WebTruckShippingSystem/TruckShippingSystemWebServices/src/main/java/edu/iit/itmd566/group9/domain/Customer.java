@@ -32,14 +32,6 @@ public class Customer {
     @Embedded
     private ContactDetails contactdetails;
 
-    @OneToMany(mappedBy = "customer",cascade = CascadeType.PERSIST)
-    List<Order> orders = new ArrayList<>();
-
-    public void addOrders(Order order) {
-        this.orders.add(order);
-        order.setCustomer(this);
-    }
-
     /**
      * Get the value of custLastName
      *

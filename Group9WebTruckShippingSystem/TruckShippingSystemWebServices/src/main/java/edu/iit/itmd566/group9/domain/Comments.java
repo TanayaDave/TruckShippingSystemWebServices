@@ -29,8 +29,8 @@ public class Comments {
 
     @Temporal(TemporalType.DATE)
     private Date date;
-
-    private String title;
+//
+//    private String title;
     private String description;
 
     @XmlAttribute
@@ -49,15 +49,15 @@ public class Comments {
     public void setDate(Date date) {
         this.date = date;
     }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
+//
+//    public String getTitle() {
+//        return title;
+//    }
+//
+//    public void setTitle(String title) {
+//        this.title = title;
+//    }
+//
     public String getDescription() {
         return description;
     }
@@ -68,7 +68,7 @@ public class Comments {
 
     @Override
     public String toString() {
-        return "Comments{" + "Id=" + id + ", date=" + date+ ", title=" + title + ", comment=" + description + '}';
+        return "Comments{" + "Id=" + id + ", date=" + date + '}';
     }
 
 }

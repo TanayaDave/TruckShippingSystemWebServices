@@ -19,10 +19,12 @@
     <class>edu.iit.itmd566.group9.domain.Vehicles</class>
     <class>edu.iit.itmd566.group9.domain.Location</class>
     <class>edu.iit.itmd566.group9.domain.User</class>
+    <class>com.group9.truckshippingsystem.security.Group</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <!--      <property name="eclipselink.logging.level" value="FINE"/>-->
       <property name="eclipselink.logging.parameters" value="true"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
   </persistence-unit>
 </persistence>

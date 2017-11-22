@@ -29,10 +29,7 @@ public class TruckService {
         boolean flag = true;
         try {
             EntityManager em = Utility.createEntityManager();
-            EntityTransaction trans = em.getTransaction();
-            trans.begin();
             truck = em.find(Truck.class, id);
-            trans.commit();
             em.close();
             LOG.info("truckData:" + truck.toString());
         } catch (Exception e) {

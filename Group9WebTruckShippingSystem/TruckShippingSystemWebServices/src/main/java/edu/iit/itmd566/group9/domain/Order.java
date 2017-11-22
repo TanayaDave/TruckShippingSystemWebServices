@@ -5,14 +5,13 @@
  */
 package edu.iit.itmd566.group9.domain;
 
+import java.lang.annotation.Native;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -26,142 +25,110 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;
-    @Column(name = "CId")
-    private int custId;
 
-    @Column(name = "OrdDate")
+//    @Native
+//    @Column(name = "OrdDate")
     @Temporal(TemporalType.DATE)
     private Date orderDate;
 
-    @Column(name = "EmpId")
-    private Integer employeeId;
+    private String locFrom;
 
-    @ManyToOne
-    @JoinColumn(name = "customer")
-    private Customer customer;
+    private String locTo;
 
-    @Column(name = "untCost")
-    private Integer unitCost;
+    private String custName;
 
-    @Column(name = "qty")
-    private Integer qnty;
+    private String vin;
 
-    @Column(name = "lId")
-    private Integer locId;
+    private Integer amt;
 
-    @Column(name = "tId")
-    private Integer truckId;
-
-    @Column(name = "ttlAmt")
-    private Integer totalAmount;
-
-    
     /**
-     * Get the value of truckId
+     * Get the value of amt
      *
-     * @return the value of truckId
+     * @return the value of amt
      */
-    public Integer getTruckId() {
-        return truckId;
+    public Integer getAmt() {
+        return amt;
     }
 
     /**
-     * Set the value of truckId
+     * Set the value of amt
      *
-     * @param truckId new value of truckId
+     * @param amt new value of amt
      */
-    public void setTruckId(Integer truckId) {
-        this.truckId = truckId;
+    public void setAmt(Integer amt) {
+        this.amt = amt;
     }
 
     /**
-     * Get the value of totalAmount
+     * Get the value of vin
      *
-     * @return the value of totalAmount
+     * @return the value of vin
      */
-    public Integer getTotalAmount() {
-        return totalAmount;
+    public String getVin() {
+        return vin;
     }
 
     /**
-     * Set the value of totalAmount
+     * Set the value of vin
      *
-     * @param totalAmount new value of totalAmount
+     * @param vin new value of vin
      */
-    public void setTotalAmount(Integer totalAmount) {
-        this.totalAmount = totalAmount;
+    public void setVin(String vin) {
+        this.vin = vin;
     }
 
     /**
-     * Get the value of locId
+     * Get the value of custName
      *
-     * @return the value of locId
+     * @return the value of custName
      */
-    public Integer getLocId() {
-        return locId;
+    public String getCustName() {
+        return custName;
     }
 
     /**
-     * Set the value of locId
+     * Set the value of custName
      *
-     * @param locId new value of locId
+     * @param custName new value of custName
      */
-    public void setLocId(Integer locId) {
-        this.locId = locId;
+    public void setCustName(String custName) {
+        this.custName = custName;
     }
 
     /**
-     * Get the value of employeeId
+     * Get the value of locTo
      *
-     * @return the value of employeeId
+     * @return the value of locTo
      */
-    public Integer getEmployeeId() {
-        return employeeId;
+    public String getLocTo() {
+        return locTo;
     }
 
     /**
-     * Set the value of employeeId
+     * Set the value of locTo
      *
-     * @param employeeId new value of employeeId
+     * @param locTo new value of locTo
      */
-    public void setEmployeeId(Integer employeeId) {
-        this.employeeId = employeeId;
+    public void setLocTo(String locTo) {
+        this.locTo = locTo;
     }
 
     /**
-     * Get the value of qnty
+     * Get the value of locFrom
      *
-     * @return the value of qnty
+     * @return the value of locFrom
      */
-    public Integer getQnty() {
-        return qnty;
+    public String getLocFrom() {
+        return locFrom;
     }
 
     /**
-     * Set the value of qnty
+     * Set the value of locFrom
      *
-     * @param qnty new value of qnty
+     * @param locFrom new value of locFrom
      */
-    public void setQnty(Integer qnty) {
-        this.qnty = qnty;
-    }
-
-    /**
-     * Get the value of unitCost
-     *
-     * @return the value of unitCost
-     */
-    public Integer getUnitCost() {
-        return unitCost;
-    }
-
-    /**
-     * Set the value of unitCost
-     *
-     * @param unitCost new value of unitCost
-     */
-    public void setUnitCost(Integer unitCost) {
-        this.unitCost = unitCost;
+    public void setLocFrom(String locFrom) {
+        this.locFrom = locFrom;
     }
 
     /**
@@ -182,28 +149,12 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
     public int getOrderId() {
         return orderId;
     }
 
     public void setOrderId(int orderId) {
         this.orderId = orderId;
-    }
-
-    public int getCustId() {
-        return custId;
-    }
-
-    public void setCustId(int custId) {
-        this.custId = custId;
     }
 
 }

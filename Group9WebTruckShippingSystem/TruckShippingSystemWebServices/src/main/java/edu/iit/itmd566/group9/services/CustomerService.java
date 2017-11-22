@@ -25,10 +25,10 @@ public class CustomerService {
         Customer customer = new Customer();
         try {
             EntityManager em = Utility.createEntityManager();
-            EntityTransaction trans = em.getTransaction();
-            trans.begin();
+//            EntityTransaction trans = em.getTransaction();
+//            trans.begin();
             customer = em.find(Customer.class, id);
-            trans.commit();
+//            trans.commit();
             em.close();
         } catch (Exception e) {
             e.printStackTrace();
